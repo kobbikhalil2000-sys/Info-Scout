@@ -1,6 +1,11 @@
 import platform
 from datetime import datetime
 
+# Assign colors
+RED = "\033[93m"
+BLUE = "\033[94m"
+RESET = "\033[0m"
+
 # Main dictionary to store all system data.
 # Structuring it this way makes it easy to export to JSON later.
 info = {"System": {}, "Time": {}}
@@ -84,11 +89,24 @@ def f_date(amount):
     return f"{amount.year}-{amount.month:02d}-{amount.day:02d} {amount.hour:02d}:{amount.minute:02d}:{amount.second:02d}"
 
 
+def Print(data):
+    for category, keys in data.items():
+        print(f"{RED}======== {category} ========{RESET}")
+        for key, value in keys.items():
+            print(f"{BLUE}{key}{RESET}:",
+                  f"{value}")
+
+
 if __name__ == "__main__":
-    # Execute the data collection functions
-    sys_info()
-    uptime()
-    boot_time()
+    try:
+        # Execute the data collection functions
+        sys_info()
+        uptime()
+        boot_time()
+    except Exception as e:
+        print(f"Seems we fucked up, right.. Take that error name as a sorry: {e}",
+              "if you're not happy, FUCK YOU"
+              )
 
 # Output the final data structure
-print(info)
+Print(info)
