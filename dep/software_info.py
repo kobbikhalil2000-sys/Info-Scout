@@ -1,5 +1,5 @@
 import os
-from help import get_packs
+from dep.helpers import get_packs
 
 def start(info):
     # First the Init System (e.g. systemd, runit...)
@@ -15,5 +15,5 @@ def start(info):
     info["Software"]["Shell"] = os.environ.get("SHELL", "No shell information. Are you communicating through telepathy?")
 
     # Now, we get the number of bullshit the user has installed
-    info["Software"]["Packages"], info["Software"]["Pack Manager"] = get_packs.activate()
-    return
+    info["Software"]["Packages"], info["Software"]["Pack Manager"] = get_packs.activate(info)
+    return info

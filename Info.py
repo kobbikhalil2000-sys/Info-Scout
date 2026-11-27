@@ -23,9 +23,13 @@ if __name__ == "__main__":
     try:
         # Execute the data collection functions
         info = sys_info.start(info)
+        print(type(info))
         info = uptime.start(info)
+        print(type(info))
         info = boot_time.start(info)
+        print(type(info))
         info = software_info.start(info)
+        print(type(info))
 
         # Output the final data structure
         Print(info)
@@ -34,6 +38,3 @@ if __name__ == "__main__":
         print(f"Well, you broke something. Here's the evidence: {e}",
               "I'm sure you'll figure it out."
               )
-
-# Output the final data structure
-Print(info)
