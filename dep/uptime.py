@@ -1,6 +1,7 @@
 from datetime import timedelta
 
-def start(info):
+
+def start(info: dict) -> dict:
     # /proc/uptime contains the system uptime in seconds as a float.
     try:
         with open("/proc/uptime") as uptime_file:
@@ -19,7 +20,7 @@ def start(info):
 
 
 
-def f_uptime(amount): # BTW "f" stands for "format"
+def f_uptime(amount: float) -> str: # BTW "f" stands for "format"
     # We basicly are transforming it to milliseconds
     # cuz the file returns time in seconds
     duration = timedelta(milliseconds=round(amount * 1000))

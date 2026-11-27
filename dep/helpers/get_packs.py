@@ -1,7 +1,8 @@
-import subprocess as Srun
 import os
+import subprocess as Srun
 
-def activate(info):
+
+def activate(info: dict) -> str:
     os_id = info["System"]["Os id"]
     match os_id:
         case "arch" | "manjaro" | "endeavouros" | "garuda" | "artix":

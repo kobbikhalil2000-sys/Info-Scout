@@ -1,6 +1,7 @@
 from datetime import datetime
 
-def start(info):
+
+def start(info: dict) -> dict:
     try:
         with open("/proc/stat", "r") as f:
             info["Time"]["Boot-time"] = "No boot-time found. Did you forget to boot your system?"
@@ -19,7 +20,7 @@ def start(info):
 
 
 
-def f_date(amount):
+def f_date(amount: datetime) -> str:
     # :02d is the format specifier that forces single-digit numbers to have a leading zero (e.g., 05).
     return f"{amount.year}-{amount.month:02d}-{amount.day:02d} " \
            f"{amount.hour:02d}:{amount.minute:02d}:{amount.second:02d}"

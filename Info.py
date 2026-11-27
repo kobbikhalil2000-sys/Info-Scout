@@ -1,5 +1,5 @@
 #! /usr/bin/env python3
-from dep import sys_info, uptime, boot_time, software_info
+from dep import boot_time, software_info, sys_info, uptime
 
 # Assign colors
 RED = "\033[93m"
@@ -11,7 +11,7 @@ RESET = "\033[0m"
 info = {"System": {}, "Time": {}, "Software": {}, "Important": {"Sister name": "Cammous"}}
 
 
-def Print(data):
+def Print(data: dict) -> None:
     for category, keys in data.items():
         print(f"{RED}======== {category} ========{RESET}")
         for key, value in keys.items():
@@ -34,7 +34,7 @@ if __name__ == "__main__":
         # Output the final data structure
         Print(info)
 
-    except Exception as e:
+    except Exception as e: # noqa BLE001
         print(f"Well, you broke something. Here's the evidence: {e}",
               "I'm sure you'll figure it out."
               )

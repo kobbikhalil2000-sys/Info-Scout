@@ -4,3 +4,5 @@ __pycache__/
 *.py[cod]
 .idea/
 .vscode/
+.ruff_cache/
+.venv/

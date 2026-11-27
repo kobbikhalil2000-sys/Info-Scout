@@ -1,7 +1,9 @@
 import os
+
 from dep.helpers import get_packs
 
-def start(info):
+
+def start(info: dict) -> dict:
     # First the Init System (e.g. systemd, runit...)
     try:
         with open("/proc/1/comm", "r") as f:

@@ -1,6 +1,7 @@
 import platform
 
-def start(info):
+
+def start(info: dict) -> dict:
     # Reads the Linux distribution details from /etc/os-release
     try:
         data = platform.freedesktop_os_release()
