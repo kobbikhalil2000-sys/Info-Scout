@@ -1,6 +1,6 @@
 *.mp4
 *.webp
 __pycache__/
-*.pyc
+*.py[cod]
 .idea/
 .vscode/
